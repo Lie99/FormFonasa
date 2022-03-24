@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario Fonasa</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="jspdf.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<style>
+    /* Chrome, Safari, Edge, Opera */
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0;
+    }
+    
+    /* Firefox */
+    input[type=number] {
+      -moz-appearance: textfield;
+    }
+</style>
+
+<body>
+    <div class="container mt-4">
+        <div class="col-md-8 offset-md-2">
+            <h3> Formulario Inscripcion basica Fonasa</h3>
+            <hr>
+            <form id="form">
+                <h4>1.Tipo solicitud</h4>
+                <hr>
+                <div class="mb-3">
+                    <label for="" class="form-label">Seleccione el tipo de solicitud</label>
+                    <select class="form-select" id="ts">
+                        <option value="">Seleccionar</option>
+                        <option value="af">Afiliación</option>
+                        <option value="ac">Actualización de antecedentes del afiliado</option>
+                        <option value="in">Integración o eliminacion de cargas familiares</option>
+                        <option value="mo">Modificación de empleador</option>
+                        <option value="ca">Cambio situación laboral</option>
+                    </select>
+                </div>
+                <h4>2.Identificación del usuario</h4>
+                <hr>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="nombre" class="form-label">Nombres</label>
+                        <input type="text" class="form-control" id="nombre">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="apellidop" class="form-label">Apellido Paterno</label>
+                        <input type="text" class="form-control" id="apellidop">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="apellidom" class="form-label">Apellido Materno</label>
+                        <input type="text" class="form-control" id="apellidom">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="run" class="form-label">Ingrese su Run</label>
+                        <input type="number" class="form-control" id="run">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="fnacimiento" class="form-label">Fecha de Nacimiento</label>
+                        <input type="date" class="form-control" id="fnacimiento">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="sexo" class="form-label">Seleccione su sexo</label>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="sexo" class="form-check-input" id="m" value="1">
+                            <label for="m" class="form-check-label">Masculino</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                            <input type="radio" name="sexo" class="form-check-input" id="f" value="0">
+                            <label for="f" class="form-check-label">Femenino</label>
+                        </div>
+                    </div>
+                    <div class="col-md-8">
+                        <label for="nacionalidad" class="form-label">Ingrese su nacionalidad</label>
+                        <input type="text" class="form-control" id="nacionalidad">
+                    </div>
+                    
+                </div>
+                <h4>3. Domicilio</h4>
+                <hr>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="" class="form-label">Región</label>
+                        <select class="form-select" id="region">
+                            <option value="">Seleccionar</option>
+                            <option value="I">I. Tarapacá</option>
+                            <option value="II">II. Antofagasta </option>
+                            <option value="III">III. Atacama</option>
+                            <option value="IV">IV. Coquimbo</option>
+                            <option value="V">V. Valparaíso</option>
+                            <option value="VI">VI. O'Higgins</option>
+                            <option value="VII">VII. Maule</option>
+                            <option value="VIII">VIII. Bío Bío</option>
+                            <option value="IX">IX. Araucanía</option>
+                            <option value="X">X. Los Lagos</option>
+                            <option value="XI">XI. Aysén</option>
+                            <option value="XII">XII. Magallanes</option>
+                            <option value="RM">RM. Santiago</option>
+                            <option value="XIV">XIV. Los Ríos</option>
+                            <option value="XV">XV. Arica y Parinacota</option>
+                            <option value="XVI">XVI. Ñuble</option>
+                        </select>
+                    </div>
+                    <div class="col-md-8">
+                        <label for="comuna" class="form-label">Comuna</label>
+                        <input type="text" class="form-control" id="comuna">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-9">
+                        <label for="calle" class="form-label">Calle</label>
+                        <input type="text" class="form-control" id="calle">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="numero" class="form-label">Número</label>
+                        <input type="text" class="form-control" id="numero">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-9">
+                        <label for="pobla" class="form-label">Población o villa</label>
+                        <input type="text" class="form-control" id="pobla">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="dep" class="form-label">N° de departamento</label>
+                        <input type="text" class="form-control" id="dep">
+                    </div>
+                </div>
+                <div class="mb-3">
+                    <label for="" class="form-label">Seleccione su tipo de propiedad</label>
+                    <select class="form-select" id="ts">
+                        <option value="">Seleccionar</option>
+                        <option value="pp">Propia pagada</option>
+                        <option value="pd">Propia con deuda</option>
+                        <option value="aa">Arrendada</option>
+                        <option value="ao">Allegado</option>
+                        <option value="os">Otros</option>
+                    </select>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-6">
+                        <label for="tel" class="form-label">Número de teléfono o celular</label>
+                        <input type="text" class="form-control" id="tel">
+                    </div>
+                    <div class="col-md-6">
+                        <label for="correo" class="form-label">Correo electronico</label>
+                        <input type="email" class="form-control" id="correo">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-12">
+                        <label for="sexo" class="form-label">Autorizo a Fonasa para que envíe información a mi email y/o telefono celular :</label>
+                        <div class="form-check form-check-inline">
+                        <input type="radio" name="autorizo" class="form-check-input" id="m" value="1">
+                        <label for="s" class="form-check-label">Si</label>
+                        </div>
+                        <div class="form-check form-check-inline">
+                        <input type="radio" name="autorizo" class="form-check-input" id="f" value="0">
+                        <label for="n" class="form-check-label">No</label>
+                        </div>
+                    </div>
+                </div>
+                <h4>4. Tipo de Asegurado</h4>
+                <hr>
+                <div class="row mb-3">
+                     <div class="col-md-12">
+                        <h6>Si esta trabajando o esta cesante</h6>
+                        <label for="" class="form-label">Seleccione estado actual</label>
+                        <select class="form-select" id="ts">
+                           <option value="">Seleccionar</option>
+                           <option value="ci">Contrato Indefinido</option>
+                           <option value="cf">Contrato a plazo fijo</option>
+                           <option value="co">Contrato por obra o faena</option>
+                           <option value="cj">Contrato por turno o jornada</option>
+                           <option value="tps">Trabajador o pensinado del sector salud</option>
+                           <option value="ie">Independiente</option>
+                           <option value="cd">Cesante subsidio cesantía/segun desempleo</option>
+                       </select>
+                     </div>
+                </div>
+                <div class="row mb-3">
+                    <h6>Si es pensionado</h6>
+                    <div class="col-md-6">
+                            <label for="" class="form-label">Seleccione motivo</label>
+                            <select class="form-select" id="ts">
+                            <option value="">Seleccionar</option>
+                            <option value="vz">Vejez</option>
+                            <option value="vs">Viudez</option>
+                            <option value="od">Orfandad</option>
+                            <option value="iz">Invalidez</option>
+                            <option value="pt">Pensión en tramite</option>
+                            </select>
+                    </div>
+                    <div class="col-md-6">
+                        <label for="" class="form-label">Seleccione Intitucion pagadora de pensión</label>
+                            <select class="form-select" id="ts">
+                            <option value="">Seleccionar</option>
+                            <option value="ips">IPS</option>
+                            <option value="afp">AFP</option>
+                            <option value="cia">CIA, de seguros</option>
+                            <option value="mutual">Mutual</option>
+                            </select>
+                    </div> 
+                </div>
+                <h4>5. Datos de empleador y/o institución pagadora de pensión</h4>
+                <hr>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="rut" class="form-label">Rut</label>
+                        <input type="number" class="form-control" id="rut">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="rsocial" class="form-label">Nombre o razon social</label>
+                        <input type="text" class="form-control" id="rsocial">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="domi" class="form-label">Domicilio</label>
+                        <input type="text" class="form-control" id="domi">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="tel" class="form-label">Telefono</label>
+                        <input type="number" class="form-control" id="tel">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="rimponible" class="form-label">Renta imp. mensual</label>
+                        <input type="number" class="form-control" id="rimponible">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inicio" class="form-label">Contrato, desde</label>
+                            <input type="date" class="form-control"  id="inicio">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="fin" class="form-label">Hasta</label>
+                        <input type="date" class="form-control"  id="fin">
+                    </div>
+                </div>
+                <hr>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="rut2" class="form-label">Rut</label>
+                        <input type="number" class="form-control" id="rut2">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="rsocial2" class="form-label">Nombre o razon social</label>
+                        <input type="text" class="form-control" id="rsocial2">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="domi2" class="form-label">Domicilio</label>
+                        <input type="text" class="form-control" id="domi2">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="tel2" class="form-label">Telefono</label>
+                        <input type="number" class="form-control" id="tel2">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="rimponible2" class="form-label">Renta imp. mensual</label>
+                        <input type="number" class="form-control" id="rimponible2">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="inicio2" class="form-label">Contrato, desde</label>
+                        <input type="date" class="form-control"  id="inicio2">
+                    </div>
+                    <div class="col-md-3">
+                        <label for="fin2" class="form-label">Hasta</label>
+                        <input type="date" class="form-control"  id="fin2">
+                    </div>
+                </div>
+                <hr>
+                <div class="row">
+                    <label for="rentfinal">Total de ingresos $ <input type="number" id="rentfinal"></label>
+                </div>
+                <h4>6. Detalles de cargas familiares</h4>
+                <div class="row mb-3">
+                    <div class="col-md-4">
+                        <label for="carRut" class="form-label">Rut</label>
+                        <input type="number" class="form-control" id="carRut">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="carApellido" class="form-label">Apellidos</label>
+                        <input type="text" class="form-control" id="carApellido">
+                    </div>
+                    <div class="col-md-4">
+                        <label for="carNombre" class="form-label">Nombres</label>
+                        <input type="text" class="form-control" id="carNombre">
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <div class="col-md-3">
+                        <label for="carNac" class="form-label">Fecha Nacimiento</label>
+                        <input type="date" class="form-control"  id="carNac">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>
