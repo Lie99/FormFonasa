@@ -41,5 +41,5 @@ async function generatePDF() {
     pdf.addPage();
     pdf.addImage(image2, 'PNG', 0, 0, 565, 792);
 
-    pdf.save("probando.pdf")
+    pdf.save("prueba.pdf")
 }
