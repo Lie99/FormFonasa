@@ -38,6 +38,7 @@ async function generatePDF() {
     const pdf = new jsPDF('p', 'pt','letter');
 
     pdf.addImage(image1, 'PNG', 0, 0, 565, 792);
+    pdf.addImage(image2, 'PNG', 0, 0, 565, 792);
 
     pdf.save("probando.pdf")
 }
