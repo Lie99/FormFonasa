@@ -24,7 +24,20 @@ window.addEventListener('load', async () => {
     canvas.width = canvas.offsetWidth;
 
     signaturePad = new SignaturePad(canvas, {});
-    
-    const image = await loadImage("images/Form1.jpg")
-    console.log(image);
+    const form = document.querySelector('#form');
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        generatePDF();
+    })
 })
+
+async function generatePDF() {
+    const image1 = await loadImage("images/Form1.jpg");
+    const image2 = await loadImage("images/Form2.jpg");
+
+    const pdf = new jsPDF('p', 'pt','letter');
+
+    pdf.addImage(image1, 'PNG', 0, 0, 565, 792);
+
+    pdf.save("probando.pdf")
+}
