@@ -25,7 +25,8 @@
     }
 </style>
 
-<body>
+<body background="">
+    
     <div class="container mt-4">
         <div class="col-md-8 offset-md-2">
             <h3> Formulario Inscripcion basica Fonasa</h3>
@@ -161,13 +162,13 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-12">
-                        <label for="sexo" class="form-label">Autorizo a Fonasa para que envíe información a mi email y/o telefono celular :</label>
+                        <label for="autorizo" class="form-label">Autorizo a Fonasa para que envíe información a mi email y/o telefono celular :</label>
                         <div class="form-check form-check-inline">
-                        <input type="radio" name="autorizo" class="form-check-input" id="m" value="1">
+                        <input type="radio" name="autorizo" class="form-check-input" id="aS" value="1">
                         <label for="s" class="form-check-label">Si</label>
                         </div>
                         <div class="form-check form-check-inline">
-                        <input type="radio" name="autorizo" class="form-check-input" id="f" value="0">
+                        <input type="radio" name="autorizo" class="form-check-input" id="aN" value="0">
                         <label for="n" class="form-check-label">No</label>
                         </div>
                     </div>
@@ -177,8 +178,8 @@
                 <div class="row mb-3">
                      <div class="col-md-12">
                         <h6>Si esta trabajando o esta cesante</h6>
-                        <label for="" class="form-label">Seleccione estado actual</label>
-                        <select class="form-select" id="tc">
+                        <label for="estado" class="form-label">Seleccione estado actual</label>
+                        <select class="form-select" id="estadoActual">
                            <option value="">Seleccionar</option>
                            <option value="ci">Contrato Indefinido</option>
                            <option value="cf">Contrato a plazo fijo</option>
@@ -193,7 +194,7 @@
                 <div class="row mb-3">
                     <h6>Si es pensionado</h6>
                     <div class="col-md-6">
-                            <label for="" class="form-label">Seleccione motivo</label>
+                            <label for="motivo" class="form-label">Seleccione motivo</label>
                             <select class="form-select" id="mot">
                             <option value="">Seleccionar</option>
                             <option value="vz">Vejez</option>
@@ -204,7 +205,7 @@
                             </select>
                     </div>
                     <div class="col-md-6">
-                        <label for="" class="form-label">Seleccione Intitucion pagadora de pensión</label>
+                        <label for="pension" class="form-label">Seleccione Intitucion pagadora de pensión</label>
                             <select class="form-select" id="pen">
                             <option value="">Seleccionar</option>
                             <option value="ips">IPS</option>
@@ -232,8 +233,8 @@
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-3">
-                        <label for="tel" class="form-label">Telefono</label>
-                        <input type="number" class="form-control" id="tel">
+                        <label for="emTel" class="form-label">Telefono</label>
+                        <input type="number" class="form-control" id="emTel">
                     </div>
                     <div class="col-md-3">
                         <label for="rimponible" class="form-label">Renta imp. mensual</label>
@@ -266,7 +267,7 @@
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label for="tel2" class="form-label">Telefono</label>
-                        <input type="number" class="form-control" id="tel2">
+                        <input type="number" class="form-control" id="emTel2">
                     </div>
                     <div class="col-md-3">
                         <label for="rimponible2" class="form-label">Renta imp. mensual</label>
@@ -308,11 +309,11 @@
                     <div class="col-md-3">
                         <label for="carSexo" class="form-label">Seleccione su sexo</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="sexo" class="form-check-input" id="carM" value="M">
+                            <input type="radio" name="carSexo" class="form-check-input" id="carM" value="M">
                             <label for="carM" class="form-check-label">Masculino</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="sexo" class="form-check-input" id="carF" value="F">
+                            <input type="radio" name="carSexo" class="form-check-input" id="carF" value="F">
                             <label for="carF" class="form-check-label">Femenino</label>
                         </div>
                     </div>
@@ -328,7 +329,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="mov" class="form-label">Que desea hacer</label>
-                            <select class="form-select" id="par">
+                            <select class="form-select" id="accion">
                             <option value="">Seleccionar</option>
                             <option value="A">Adicional</option>
                             <option value="E">Eliminar</option>
@@ -339,36 +340,36 @@
                 <div class="row mb-3">
                     <div class="col-md-4">
                         <label for="carRut" class="form-label">Rut</label>
-                        <input type="number" class="form-control" id="carRut">
+                        <input type="number" class="form-control" id="carRut2">
                     </div>
                     <div class="col-md-4">
                         <label for="carApellido" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="carApellido">
+                        <input type="text" class="form-control" id="carApellido2">
                     </div>
                     <div class="col-md-4">
                         <label for="carNombre" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="carNombre">
+                        <input type="text" class="form-control" id="carNombre2">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label for="carNac" class="form-label">Fecha Nacimiento</label>
-                        <input type="date" class="form-control"  id="carNac">
+                        <input type="date" class="form-control"  id="carNac2">
                     </div>
                     <div class="col-md-3">
                         <label for="carSexo" class="form-label">Seleccione su sexo</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="sexo" class="form-check-input" id="carM" value="M">
+                            <input type="radio" name="carSexo2" class="form-check-input" id="carM" value="M">
                             <label for="carM" class="form-check-label">Masculino</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="sexo" class="form-check-input" id="carF" value="F">
+                            <input type="radio" name="carSexo2" class="form-check-input" id="carF" value="F">
                             <label for="carF" class="form-check-label">Femenino</label>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <label for="parentesco" class="form-label">Seleccione parentesco</label>
-                            <select class="form-select" id="par">
+                            <select class="form-select" id="par2">
                             <option value="">Seleccionar</option>
                             <option value="1">Conyuge</option>
                             <option value="2">Ascendiente</option>
@@ -378,7 +379,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="mov" class="form-label">Que desea hacer</label>
-                            <select class="form-select" id="par">
+                            <select class="form-select" id="accion2">
                             <option value="">Seleccionar</option>
                             <option value="A">Adicional</option>
                             <option value="E">Eliminar</option>
@@ -389,36 +390,36 @@
                 <div class="row mb-3">
                     <div class="col-md-4">
                         <label for="carRut" class="form-label">Rut</label>
-                        <input type="number" class="form-control" id="carRut">
+                        <input type="number" class="form-control" id="carRut3">
                     </div>
                     <div class="col-md-4">
                         <label for="carApellido" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="carApellido">
+                        <input type="text" class="form-control" id="carApellido3">
                     </div>
                     <div class="col-md-4">
                         <label for="carNombre" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="carNombre">
+                        <input type="text" class="form-control" id="carNombre3">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label for="carNac" class="form-label">Fecha Nacimiento</label>
-                        <input type="date" class="form-control"  id="carNac">
+                        <input type="date" class="form-control"  id="carNac3">
                     </div>
                     <div class="col-md-3">
                         <label for="carSexo" class="form-label">Seleccione su sexo</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="sexo" class="form-check-input" id="carM" value="M">
+                            <input type="radio" name="carSexo3" class="form-check-input" id="carM" value="M">
                             <label for="carM" class="form-check-label">Masculino</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="sexo" class="form-check-input" id="carF" value="F">
+                            <input type="radio" name="carSexo3" class="form-check-input" id="carF" value="F">
                             <label for="carF" class="form-check-label">Femenino</label>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <label for="parentesco" class="form-label">Seleccione parentesco</label>
-                            <select class="form-select" id="par">
+                            <select class="form-select" id="par3">
                             <option value="">Seleccionar</option>
                             <option value="1">Conyuge</option>
                             <option value="2">Ascendiente</option>
@@ -428,7 +429,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="mov" class="form-label">Que desea hacer</label>
-                            <select class="form-select" id="par">
+                            <select class="form-select" id="accion3">
                             <option value="">Seleccionar</option>
                             <option value="A">Adicional</option>
                             <option value="E">Eliminar</option>
@@ -439,36 +440,36 @@
                 <div class="row mb-3">
                     <div class="col-md-4">
                         <label for="carRut" class="form-label">Rut</label>
-                        <input type="number" class="form-control" id="carRut">
+                        <input type="number" class="form-control" id="carRut4">
                     </div>
                     <div class="col-md-4">
                         <label for="carApellido" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="carApellido">
+                        <input type="text" class="form-control" id="carApellido4">
                     </div>
                     <div class="col-md-4">
                         <label for="carNombre" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="carNombre">
+                        <input type="text" class="form-control" id="carNombre4">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label for="carNac" class="form-label">Fecha Nacimiento</label>
-                        <input type="date" class="form-control"  id="carNac">
+                        <input type="date" class="form-control"  id="carNac4">
                     </div>
                     <div class="col-md-3">
                         <label for="carSexo" class="form-label">Seleccione su sexo</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="sexo" class="form-check-input" id="carM" value="M">
+                            <input type="radio" name="carSexo4" class="form-check-input" id="carM" value="M">
                             <label for="carM" class="form-check-label">Masculino</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="sexo" class="form-check-input" id="carF" value="F">
+                            <input type="radio" name="carSexo4" class="form-check-input" id="carF" value="F">
                             <label for="carF" class="form-check-label">Femenino</label>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <label for="parentesco" class="form-label">Seleccione parentesco</label>
-                            <select class="form-select" id="par">
+                            <select class="form-select" id="par4">
                             <option value="">Seleccionar</option>
                             <option value="1">Conyuge</option>
                             <option value="2">Ascendiente</option>
@@ -478,7 +479,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="mov" class="form-label">Que desea hacer</label>
-                            <select class="form-select" id="par">
+                            <select class="form-select" id="accion4">
                             <option value="">Seleccionar</option>
                             <option value="A">Adicional</option>
                             <option value="E">Eliminar</option>
@@ -489,36 +490,36 @@
                 <div class="row mb-3">
                     <div class="col-md-4">
                         <label for="carRut" class="form-label">Rut</label>
-                        <input type="number" class="form-control" id="carRut">
+                        <input type="number" class="form-control" id="carRut5">
                     </div>
                     <div class="col-md-4">
                         <label for="carApellido" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="carApellido">
+                        <input type="text" class="form-control" id="carApellido5">
                     </div>
                     <div class="col-md-4">
                         <label for="carNombre" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="carNombre">
+                        <input type="text" class="form-control" id="carNombre5">
                     </div>
                 </div>
                 <div class="row mb-3">
                     <div class="col-md-3">
                         <label for="carNac" class="form-label">Fecha Nacimiento</label>
-                        <input type="date" class="form-control"  id="carNac">
+                        <input type="date" class="form-control"  id="carNac5">
                     </div>
                     <div class="col-md-3">
                         <label for="carSexo" class="form-label">Seleccione su sexo</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="sexo" class="form-check-input" id="carM" value="M">
+                            <input type="radio" name="carSexo5" class="form-check-input" id="carM" value="M">
                             <label for="carM" class="form-check-label">Masculino</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="sexo" class="form-check-input" id="carF" value="F">
+                            <input type="radio" name="carSexo5" class="form-check-input" id="carF" value="F">
                             <label for="carF" class="form-check-label">Femenino</label>
                         </div>
                     </div>
                     <div class="col-md-3">
                         <label for="parentesco" class="form-label">Seleccione parentesco</label>
-                            <select class="form-select" id="par">
+                            <select class="form-select" id="par5">
                             <option value="">Seleccionar</option>
                             <option value="1">Conyuge</option>
                             <option value="2">Ascendiente</option>
@@ -528,7 +529,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="mov" class="form-label">Que desea hacer</label>
-                            <select class="form-select" id="par">
+                            <select class="form-select" id="accion5">
                             <option value="">Seleccionar</option>
                             <option value="A">Adicional</option>
                             <option value="E">Eliminar</option>
@@ -540,13 +541,13 @@
                 <h4>7. Inscripción establecimiento público de salud</h4>
                 <div class="row mb-3">
                     <div class="col-md-8">
-                        <label for="carSexo" class="form-label">¿Esta inscrito en algun establecimiento público de salud?</label>
+                        <label for="establecimientoInscrito" class="form-label">¿Esta inscrito en algun establecimiento público de salud?</label>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="sexo" class="form-check-input" id="insS" value="1">
+                            <input type="radio" name="inscrito" class="form-check-input" id="insS" value="1">
                             <label for="insS" class="form-check-label">Si</label>
                         </div>
                         <div class="form-check form-check-inline">
-                            <input type="radio" name="sexo" class="form-check-input" id="insN" value="0">
+                            <input type="radio" name="inscrito" class="form-check-input" id="insN" value="0">
                             <label for="insN" class="form-check-label">No</label>
                         </div>
                     </div>
