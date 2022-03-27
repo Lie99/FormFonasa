@@ -262,5 +262,5 @@ async function generatePDF() {
     pdf.rect(500, 700, 10, 10);
     pdf.rect(500, 800, 10, 10);
 
-    pdf.save("firma.pdf")
+    pdf.save("coordenadas.pdf")
 }
