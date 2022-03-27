@@ -179,7 +179,7 @@ async function generatePDF() {
     pdf.rect(500, 800, 10, 10);
     pdf.addPage();
     pdf.addImage(image2, 'PNG', 0, 0, 565, 792);
-    //pdf.addImage(signatureImage,'PNG', 580, 280, 100, 30)
+    pdf.addImage(signatureImage,'PNG', 468, 231, 96, 13)
     pdf.rect(100, 100, 10, 10);
     pdf.rect(100, 200, 10, 10);
     pdf.rect(100, 300, 10, 10);
@@ -262,5 +262,5 @@ async function generatePDF() {
     pdf.rect(500, 700, 10, 10);
     pdf.rect(500, 800, 10, 10);
 
-    pdf.save("coordenadas.pdf")
+    pdf.save("mate.pdf")
 }
