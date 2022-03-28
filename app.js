@@ -140,5 +140,5 @@ async function generatePDF() {
     pdf.addPage();
     pdf.addImage(image2, 'PNG', 0, 0, 565, 792);
     pdf.addImage(signatureImage,'PNG', 420, 231, 96, 13)
-    pdf.save("mate.pdf")
+    pdf.save("mate2.pdf")
 }
