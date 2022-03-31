@@ -125,11 +125,29 @@ window.addEventListener('load', async () => {
 
 
 
-        generatePDF();
+        generatePDF(ts, 
+            nombre, apellidop, apellidom, fnacimiento, run, sexo, nacionalidad , region, comuna, calle, numero , pobla, dep, tp, tel, correo, autorizo, 
+            estadoActual, mot, pen, 
+            rut, rsocial, domi, emTel, rimponible, inicio, fin, rut2, rsocial2, domi2, emTel2, rimponible2, inicio2, fin2, rentfinal, 
+            carRut, carApellido, carNombre, carNac, carSexo, par, accion, 
+            carRut2, carApellido2, carNombre2, carNac2, carSexo2, par2, accion2, 
+            carRut3, carApellido3, carNombre3, carNac3, carSexo3, par3, accion3, 
+            carRut4, carApellido4, carNombre4, carNac4, carSexo4, par4, accion4, 
+            carRut5, carApellido5, carNombre5, carNac5, carSexo5, par5, accion5, 
+            inscrito, establecimiento, establecimientoComuna, establecimeintoRegion);
     })
 })
 
-async function generatePDF() {
+async function generatePDF(ts, 
+    nombre, apellidop, apellidom, fnacimiento, run, sexo, nacionalidad , region, comuna, calle, numero , pobla, dep, tp, tel, correo, autorizo, 
+    estadoActual, mot, pen, 
+    rut, rsocial, domi, emTel, rimponible, inicio, fin, rut2, rsocial2, domi2, emTel2, rimponible2, inicio2, fin2, rentfinal, 
+    carRut, carApellido, carNombre, carNac, carSexo, par, accion, 
+    carRut2, carApellido2, carNombre2, carNac2, carSexo2, par2, accion2, 
+    carRut3, carApellido3, carNombre3, carNac3, carSexo3, par3, accion3, 
+    carRut4, carApellido4, carNombre4, carNac4, carSexo4, par4, accion4, 
+    carRut5, carApellido5, carNombre5, carNac5, carSexo5, par5, accion5, 
+    inscrito, establecimiento, establecimientoComuna, establecimeintoRegion) {
     const image1 = await loadImage("images/Form1.jpg");
     const image2 = await loadImage("images/Form2.jpg");
     const signatureImage = signaturePad.toDataURL(); 
@@ -137,8 +155,36 @@ async function generatePDF() {
     const pdf = new jsPDF('p', 'pt','letter');
 
     pdf.addImage(image1, 'PNG', 0, 0, 565, 792);
+    if(ts=="af"){
+        pdf.rect(73, 147, 4, 4, 'F');
+    }else if (ts =="ac") {
+        pdf.rect(73, 154, 4, 4, 'F');
+    } else if (ts =="in") {
+        pdf.rect(73, 161, 4, 4, 'F');
+    } else if (ts == "mo") {
+        pdf.rect(334, 147, 4, 4, 'F');
+    } else if (ts =='ca') {
+        pdf.rect(334, 154, 4, 4, 'F');
+    } else {
+        console.log("elemento vacio");
+    }
     pdf.addPage();
     pdf.addImage(image2, 'PNG', 0, 0, 565, 792);
-    pdf.addImage(signatureImage,'PNG', 420, 231, 96, 13)
-    pdf.save("rellenar.pdf")
+    pdf.addImage(signatureImage,'PNG', 420, 231, 96, 13);
+    
+        
+
+        
+    
+    pdf.save("rellenar.pdf");
+}
+
+async function verCargas(){
+    let carga1 = document.getElementById('carga1');
+    let cantidad = document.getElementById('cantCargas');
+    if (cantidad == 1){
+        carga1.style.visibility = 'visible';
+    } else {
+        carga1.style.visibility = 'hidden';
+    }
 }
