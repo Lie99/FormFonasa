@@ -169,7 +169,7 @@ async function generatePDF(ts,
         console.log("elemento vacio");
     }
 
-    pdf.FontSize(10)
+    pdf.setFontSize(10)
     pdf.text(apellidop, 150, 190);
     pdf.text(apellidom, 280,190);
     pdf.text(nombre, 400,190);
@@ -184,7 +184,7 @@ async function generatePDF(ts,
 
         
     
-    pdf.save("rellenar.pdf");
+    pdf.save("probandoubi.pdf");
 }
 
 async function verCargas(){
