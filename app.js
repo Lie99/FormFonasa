@@ -156,18 +156,26 @@ async function generatePDF(ts,
 
     pdf.addImage(image1, 'PNG', 0, 0, 565, 792);
     if(ts=="af"){
-        pdf.rect(73, 147, 4, 4, 'F');
+        pdf.rect(76, 152, 4, 4, 'F');
     }else if (ts =="ac") {
-        pdf.rect(73, 154, 4, 4, 'F');
+        pdf.rect(76, 159, 4, 4, 'F');
     } else if (ts =="in") {
-        pdf.rect(73, 161, 4, 4, 'F');
+        pdf.rect(76, 166, 4, 4, 'F');
     } else if (ts == "mo") {
-        pdf.rect(334, 147, 4, 4, 'F');
+        pdf.rect(339, 152, 4, 4, 'F');
     } else if (ts =='ca') {
-        pdf.rect(334, 154, 4, 4, 'F');
+        pdf.rect(339, 159, 4, 4, 'F');
     } else {
         console.log("elemento vacio");
     }
+
+    pdf.FontSize(10)
+    pdf.text(apellidop, 150, 190);
+    pdf.text(apellidom, 280,190);
+    pdf.text(nombre, 400,190);
+    pdf.text(run.toString(), 110, 220);
+    console.log(fnacimiento);
+
     pdf.addPage();
     pdf.addImage(image2, 'PNG', 0, 0, 565, 792);
     pdf.addImage(signatureImage,'PNG', 420, 231, 96, 13);
