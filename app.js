@@ -156,25 +156,33 @@ async function generatePDF(ts,
 
     pdf.addImage(image1, 'PNG', 0, 0, 565, 792);
     if(ts=="af"){
-        pdf.rect(76, 152, 4, 4, 'F');
+        pdf.rect(75, 150, 4, 4, 'F');
     }else if (ts =="ac") {
-        pdf.rect(76, 159, 4, 4, 'F');
+        pdf.rect(75, 157, 4, 4, 'F');
     } else if (ts =="in") {
-        pdf.rect(76, 166, 4, 4, 'F');
+        pdf.rect(75, 164, 4, 4, 'F');
     } else if (ts == "mo") {
-        pdf.rect(339, 152, 4, 4, 'F');
+        pdf.rect(337, 149, 4, 4, 'F');
     } else if (ts =='ca') {
-        pdf.rect(339, 159, 4, 4, 'F');
+        pdf.rect(337, 156, 4, 4, 'F');
     } else {
         console.log("elemento vacio");
     }
 
+
+    if (sexo == "m") {
+        pdf.rect(420, 230, 'F')
+    } else {
+        pdf.rect(345, 230, 'F')
+    }
+
     pdf.setFontSize(10)
-    pdf.text(apellidop, 150, 190);
-    pdf.text(apellidom, 280,190);
-    pdf.text(nombre, 400,190);
-    pdf.text(run.toString(), 110, 220);
-    console.log(fnacimiento);
+    pdf.text(apellidop, 147, 201);
+    pdf.text(apellidom, 277,201);
+    pdf.text(nombre, 397,201);
+    pdf.text(run.toString(), 100, 223);
+    pdf.text(fnacimiento.toString(),215,223);
+    pdf.text(nacionalidad,460,201);
 
     pdf.addPage();
     pdf.addImage(image2, 'PNG', 0, 0, 565, 792);
