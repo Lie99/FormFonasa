@@ -171,9 +171,9 @@ async function generatePDF(ts,
 
 
     if (sexo == "m") {
-        pdf.rect(420, 230, 'F')
+        pdf.rect(420, 230, 4,4, 'F')
     } else {
-        pdf.rect(345, 230, 'F')
+        pdf.rect(345, 230,4,4, 'F')
     }
 
     pdf.setFontSize(10)
@@ -182,7 +182,7 @@ async function generatePDF(ts,
     pdf.text(nombre, 397,201);
     pdf.text(run.toString(), 100, 223);
     pdf.text(fnacimiento.toString(),215,223);
-    pdf.text(nacionalidad,460,201);
+    pdf.text(nacionalidad,460,223);
 
     pdf.addPage();
     pdf.addImage(image2, 'PNG', 0, 0, 565, 792);
