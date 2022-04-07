@@ -199,41 +199,41 @@ async function verCargas(){
     let cantCargas = document.getElementById('cantCargas').value;
     let carga1 = document.getElementById('carga1');
     if (cantCargas == "0") {
-        carga1.disabled = "disable";
-        carga2.disabled = "disable";
-        carga3.disabled = "disable";
-        carga4.disabled = "disable";
-        carga5.disabled = "disable";
+        carga1.hidden = "hidden";
+        carga2.hidden = "hidden";
+        carga3.hidden = "hidden";
+        carga4.hidden = "hidden";
+        carga5.hidden = "hidden";
         
     } else if (cantCargas == "1"){
-        carga1.disabled = false;
-        carga2.disabled = "disable";        
-        carga3.disabled = "disable";        
-        carga4.disabled = "disable";        
-        carga5.disabled = "disable";        
+        carga1.hidden = false;
+        carga2.hidden = "hidden";        
+        carga3.hidden = "hidden";        
+        carga4.hidden = "hidden";        
+        carga5.hidden = "hidden";        
     } else if (cantCargas == "2"){
-        carga1.disabled = false;
-        carga2.disabled = false;
-        carga3.disabled = "disable";        
-        carga4.disabled = "disable";        
-        carga5.disabled = "disable"; 
+        carga1.hidden = false;
+        carga2.hidden = false;
+        carga3.hidden = "hidden";        
+        carga4.hidden = "hidden";        
+        carga5.hidden = "hidden"; 
     } else if (cantCargas == "3"){
-        carga1.disabled = false;
-        carga2.disabled = false;
-        carga3.disabled = false;        
-        carga4.disabled = "disable";        
-        carga5.disabled = "disable"; 
+        carga1.hidden = false;
+        carga2.hidden = false;
+        carga3.hidden = false;        
+        carga4.hidden = "hidden";        
+        carga5.hidden = "hidden"; 
     } else if (cantCargas == "4"){
-        carga1.disabled = false;
-        carga2.disabled = false;
-        carga3.disabled = false;        
-        carga4.disabled = false;        
-        carga5.disabled = "disable"; 
+        carga1.hidden = false;
+        carga2.hidden = false;
+        carga3.hidden = false;        
+        carga4.hidden = false;        
+        carga5.hidden = "hidden"; 
     } else if (cantCargas == "5"){
-        carga1.disabled = false;
-        carga2.disabled = false;
-        carga3.disabled = false;        
-        carga4.disabled = false;        
-        carga5.disabled = false; 
+        carga1.hidden = false;
+        carga2.hidden = false;
+        carga3.hidden = false;        
+        carga4.hidden = false;        
+        carga5.hidden = false; 
     }
 }
