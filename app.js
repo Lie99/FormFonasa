@@ -171,9 +171,9 @@ async function generatePDF(ts,
 
 
     if (sexo == "m") {
-        pdf.rect(420, 230, 4,4, 'F')
+        pdf.rect(390, 225, 4,4, 'F')
     } else {
-        pdf.rect(345, 230,4,4, 'F')
+        pdf.rect(338, 225,4,4, 'F')
     }
 
     pdf.setFontSize(10)
@@ -196,11 +196,44 @@ async function generatePDF(ts,
 }
 
 async function verCargas(){
+    let cantCargas = document.getElementById('cantCargas').value;
     let carga1 = document.getElementById('carga1');
-    let cantidad = document.getElementById('cantCargas');
-    if (cantidad == 1){
-        carga1.style.visibility = 'visible';
-    } else {
-        carga1.style.visibility = 'hidden';
+    if (cantCargas == "0") {
+        carga1.disabled = "disable";
+        carga2.disabled = "disable";
+        carga3.disabled = "disable";
+        carga4.disabled = "disable";
+        carga5.disabled = "disable";
+        
+    } else if (cantCargas == "1"){
+        carga1.disabled = false;
+        carga2.disabled = "disable";        
+        carga3.disabled = "disable";        
+        carga4.disabled = "disable";        
+        carga5.disabled = "disable";        
+    } else if (cantCargas == "2"){
+        carga1.disabled = false;
+        carga2.disabled = false;
+        carga3.disabled = "disable";        
+        carga4.disabled = "disable";        
+        carga5.disabled = "disable"; 
+    } else if (cantCargas == "3"){
+        carga1.disabled = false;
+        carga2.disabled = false;
+        carga3.disabled = false;        
+        carga4.disabled = "disable";        
+        carga5.disabled = "disable"; 
+    } else if (cantCargas == "4"){
+        carga1.disabled = false;
+        carga2.disabled = false;
+        carga3.disabled = false;        
+        carga4.disabled = false;        
+        carga5.disabled = "disable"; 
+    } else if (cantCargas == "5"){
+        carga1.disabled = false;
+        carga2.disabled = false;
+        carga3.disabled = false;        
+        carga4.disabled = false;        
+        carga5.disabled = false; 
     }
 }

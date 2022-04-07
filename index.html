@@ -10,6 +10,7 @@
     <script src="jspdf.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
     <script src="app.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 </head>
 <style>
     /* Chrome, Safari, Edge, Opera */
@@ -289,18 +290,18 @@
                 <h4>6. Detalles de cargas familiares</h4>
                 <div class="row mb-3">
                     <div class="col-md-12">
-                        <label for="cantCargas" class="form-label">Si tiene cargas familiares indique cuantas, en caso que no tenga pase a al siguiente pregunta</label>
-                            <select class="form-select" id="cantCargas">
-                                <option value="">Seleccionar</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
+                        <label for="cantCargas" class="form-label">¿Tiene cargas familiares?</label>
+                            <select class="form-select" id="cantCargas" onchange="verCargas()">
+                                <option value="0">No tengo cargas familiares</option>
+                                <option value="1">Si, tengo 1</option>
+                                <option value="2">Si, tengo 2</option>
+                                <option value="3">Si, tengo 3</option>
+                                <option value="4">Si, tengo 4</option>
+                                <option value="5">Si, tengo 5</option>
                             </select>
                     </div>
                 </div>
-                <div id="carga1">
+                <fieldset disabled id="carga1">
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <label for="carRut" class="form-label">Rut</label>
@@ -354,7 +355,9 @@
                                 </select>
                         </div>
                     </div>
+                </fieldset>
                         <hr>
+                <fieldset disabled id="carga2">        
                     <div class="row mb-3">
                         <div class="col-md-4">
                             <label for="carRut" class="form-label">Rut</label>
@@ -408,169 +411,175 @@
                                 </select>
                         </div>
                     </div>
-                </div>
+                </fieldset>
                     <hr>
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <label for="carRut" class="form-label">Rut</label>
-                        <input type="number" class="form-control" id="carRut3">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="carApellido" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="carApellido3">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="carNombre" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="carNombre3">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-3">
-                        <label for="carNac" class="form-label">Fecha Nacimiento</label>
-                        <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="carNac3">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="carSexo" class="form-label">Seleccione su sexo</label>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" name="carSexo3" class="form-check-input" id="carM3" value="M">
-                            <label for="carM3" class="form-check-label">Masculino</label>
+                <fieldset disabled id="carga3">
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="carRut" class="form-label">Rut</label>
+                            <input type="number" class="form-control" id="carRut3">
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" name="carSexo3" class="form-check-input" id="carF3" value="F">
-                            <label for="carF3" class="form-check-label">Femenino</label>
+                        <div class="col-md-4">
+                            <label for="carApellido" class="form-label">Apellidos</label>
+                            <input type="text" class="form-control" id="carApellido3">
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input type="hidden" name="carSexo3" class="form-check-input" id="carV3" value="" checked>
+                        <div class="col-md-4">
+                            <label for="carNombre" class="form-label">Nombres</label>
+                            <input type="text" class="form-control" id="carNombre3">
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="parentesco" class="form-label">Seleccione parentesco</label>
-                            <select class="form-select" id="par3">
-                            <option value="">Seleccionar</option>
-                            <option value="1">Conyuge</option>
-                            <option value="2">Ascendiente</option>
-                            <option value="3">Descendiente</option>
-                            <option value="4">Hijo con discapacidad</option>
-                            </select>
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="carNac" class="form-label">Fecha Nacimiento</label>
+                            <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="carNac3">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="carSexo" class="form-label">Seleccione su sexo</label>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="carSexo3" class="form-check-input" id="carM3" value="M">
+                                <label for="carM3" class="form-check-label">Masculino</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="carSexo3" class="form-check-input" id="carF3" value="F">
+                                <label for="carF3" class="form-check-label">Femenino</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="hidden" name="carSexo3" class="form-check-input" id="carV3" value="" checked>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="parentesco" class="form-label">Seleccione parentesco</label>
+                                <select class="form-select" id="par3">
+                                <option value="">Seleccionar</option>
+                                <option value="1">Conyuge</option>
+                                <option value="2">Ascendiente</option>
+                                <option value="3">Descendiente</option>
+                                <option value="4">Hijo con discapacidad</option>
+                                </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="mov" class="form-label">Que desea hacer</label>
+                                <select class="form-select" id="accion3">
+                                <option value="">Seleccionar</option>
+                                <option value="A">Adicional</option>
+                                <option value="E">Eliminar</option>
+                                <option value="M">Modificar</option>
+                                </select>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="mov" class="form-label">Que desea hacer</label>
-                            <select class="form-select" id="accion3">
-                            <option value="">Seleccionar</option>
-                            <option value="A">Adicional</option>
-                            <option value="E">Eliminar</option>
-                            <option value="M">Modificar</option>
-                            </select>
-                    </div>
-                </div>
+                </fieldset>
                     <hr>
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <label for="carRut" class="form-label">Rut</label>
-                        <input type="number" class="form-control" id="carRut4">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="carApellido" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="carApellido4">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="carNombre" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="carNombre4">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-3">
-                        <label for="carNac" class="form-label">Fecha Nacimiento</label>
-                        <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="carNac4">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="carSexo" class="form-label">Seleccione su sexo</label>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" name="carSexo4" class="form-check-input" id="carM4" value="M">
-                            <label for="carM4" class="form-check-label">Masculino</label>
+                <fieldset disabled id="carga4">
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="carRut" class="form-label">Rut</label>
+                            <input type="number" class="form-control" id="carRut4">
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" name="carSexo4" class="form-check-input" id="carF4" value="F">
-                            <label for="carF4" class="form-check-label">Femenino</label>
+                        <div class="col-md-4">
+                            <label for="carApellido" class="form-label">Apellidos</label>
+                            <input type="text" class="form-control" id="carApellido4">
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input type="hidden" name="carSexo4" class="form-check-input" id="carV4" value="" checked>
+                        <div class="col-md-4">
+                            <label for="carNombre" class="form-label">Nombres</label>
+                            <input type="text" class="form-control" id="carNombre4">
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="parentesco" class="form-label">Seleccione parentesco</label>
-                            <select class="form-select" id="par4">
-                            <option value="">Seleccionar</option>
-                            <option value="1">Conyuge</option>
-                            <option value="2">Ascendiente</option>
-                            <option value="3">Descendiente</option>
-                            <option value="4">Hijo con discapacidad</option>
-                            </select>
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="carNac" class="form-label">Fecha Nacimiento</label>
+                            <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="carNac4">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="carSexo" class="form-label">Seleccione su sexo</label>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="carSexo4" class="form-check-input" id="carM4" value="M">
+                                <label for="carM4" class="form-check-label">Masculino</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="carSexo4" class="form-check-input" id="carF4" value="F">
+                                <label for="carF4" class="form-check-label">Femenino</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="hidden" name="carSexo4" class="form-check-input" id="carV4" value="" checked>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="parentesco" class="form-label">Seleccione parentesco</label>
+                                <select class="form-select" id="par4">
+                                <option value="">Seleccionar</option>
+                                <option value="1">Conyuge</option>
+                                <option value="2">Ascendiente</option>
+                                <option value="3">Descendiente</option>
+                                <option value="4">Hijo con discapacidad</option>
+                                </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="mov" class="form-label">Que desea hacer</label>
+                                <select class="form-select" id="accion4">
+                                <option value="">Seleccionar</option>
+                                <option value="A">Adicional</option>
+                                <option value="E">Eliminar</option>
+                                <option value="M">Modificar</option>
+                                </select>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="mov" class="form-label">Que desea hacer</label>
-                            <select class="form-select" id="accion4">
-                            <option value="">Seleccionar</option>
-                            <option value="A">Adicional</option>
-                            <option value="E">Eliminar</option>
-                            <option value="M">Modificar</option>
-                            </select>
-                    </div>
-                </div>
+                </fieldset>
                     <hr>
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <label for="carRut" class="form-label">Rut</label>
-                        <input type="number" class="form-control" id="carRut5">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="carApellido" class="form-label">Apellidos</label>
-                        <input type="text" class="form-control" id="carApellido5">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="carNombre" class="form-label">Nombres</label>
-                        <input type="text" class="form-control" id="carNombre5">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-3">
-                        <label for="carNac" class="form-label">Fecha Nacimiento</label>
-                        <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="carNac5">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="carSexo" class="form-label">Seleccione su sexo</label>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" name="carSexo5" class="form-check-input" id="carM5" value="M">
-                            <label for="carM5" class="form-check-label">Masculino</label>
+                <fieldset disabled id="carga5">
+                    <div class="row mb-3">
+                        <div class="col-md-4">
+                            <label for="carRut" class="form-label">Rut</label>
+                            <input type="number" class="form-control" id="carRut5">
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" name="carSexo5" class="form-check-input" id="carF5" value="F">
-                            <label for="carF5" class="form-check-label">Femenino</label>
+                        <div class="col-md-4">
+                            <label for="carApellido" class="form-label">Apellidos</label>
+                            <input type="text" class="form-control" id="carApellido5">
                         </div>
-                        <div class="form-check form-check-inline">
-                            <input type="hidden" name="carSexo5" class="form-check-input" id="carV5" value="" checked>
+                        <div class="col-md-4">
+                            <label for="carNombre" class="form-label">Nombres</label>
+                            <input type="text" class="form-control" id="carNombre5">
                         </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="parentesco" class="form-label">Seleccione parentesco</label>
-                            <select class="form-select" id="par5">
-                            <option value="">Seleccionar</option>
-                            <option value="1">Conyuge</option>
-                            <option value="2">Ascendiente</option>
-                            <option value="3">Descendiente</option>
-                            <option value="4">Hijo con discapacidad</option>
-                            </select>
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="carNac" class="form-label">Fecha Nacimiento</label>
+                            <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="carNac5">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="carSexo" class="form-label">Seleccione su sexo</label>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="carSexo5" class="form-check-input" id="carM5" value="M">
+                                <label for="carM5" class="form-check-label">Masculino</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" name="carSexo5" class="form-check-input" id="carF5" value="F">
+                                <label for="carF5" class="form-check-label">Femenino</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="hidden" name="carSexo5" class="form-check-input" id="carV5" value="" checked>
+                            </div>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="parentesco" class="form-label">Seleccione parentesco</label>
+                                <select class="form-select" id="par5">
+                                <option value="">Seleccionar</option>
+                                <option value="1">Conyuge</option>
+                                <option value="2">Ascendiente</option>
+                                <option value="3">Descendiente</option>
+                                <option value="4">Hijo con discapacidad</option>
+                                </select>
+                        </div>
+                        <div class="col-md-3">
+                            <label for="mov" class="form-label">Que desea hacer</label>
+                                <select class="form-select" id="accion5">
+                                <option value="">Seleccionar</option>
+                                <option value="A">Adicional</option>
+                                <option value="E">Eliminar</option>
+                                <option value="M">Modificar</option>
+                                </select>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="mov" class="form-label">Que desea hacer</label>
-                            <select class="form-select" id="accion5">
-                            <option value="">Seleccionar</option>
-                            <option value="A">Adicional</option>
-                            <option value="E">Eliminar</option>
-                            <option value="M">Modificar</option>
-                            </select>
-                    </div>
-                </div>
+                </fieldset>
                 <hr>
                 
                 <h4>7. Inscripción establecimiento público de salud</h4>
