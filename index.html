@@ -178,35 +178,42 @@
                 <hr>
                 <div class="row mb-3">
                      <div class="col-md-12">
-                        <h6>Si esta trabajando o esta cesante</h6>
                         <label for="estado" class="form-label">Seleccione estado actual</label>
-                        <select class="form-select" id="estadoActual">
+                        <select class="form-select" id="estadoActual" onchange="estado()">
                            <option value="">Seleccionar</option>
-                           <option value="ci">Contrato Indefinido</option>
-                           <option value="cf">Contrato a plazo fijo</option>
-                           <option value="co">Contrato por obra o faena</option>
-                           <option value="cj">Contrato por turno o jornada</option>
-                           <option value="tps">Trabajador o pensinado del sector salud</option>
-                           <option value="ie">Independiente</option>
-                           <option value="cd">Cesante subsidio cesantía/segun desempleo</option>
+                           <option value="contratado">Contratado</option>
+                           <option value="pensionado">Pensionado</option>
+                           <option value="otros">Otros</option>
+                           <option value="PyC">Pensionado y Contratado</option>
+                           <option value="PeI">Pensionado e independiente</option>
                        </select>
                      </div>
                 </div>
-                <div class="row mb-3">
-                    <h6>Si es pensionado</h6>
-                    <div class="col-md-6">
-                            <label for="motivo" class="form-label">Seleccione motivo</label>
-                            <select class="form-select" id="mot">
-                            <option value="">Seleccionar</option>
-                            <option value="vz">Vejez</option>
-                            <option value="vs">Viudez</option>
-                            <option value="od">Orfandad</option>
-                            <option value="iz">Invalidez</option>
-                            <option value="pt">Pensión en tramite</option>
-                            </select>
+                <fieldset id="contratado" hidden>
+                    <label for="contratado" class="form-label">Indique tipo de contrato</label>
+                    <select class="form-select" id="contratado">
+                        <option value="">Seleccionar</option>
+                        <option value="ci">Contrato Indefinido</option>
+                        <option value="cf">Contrato a plazo fijo</option>
+                        <option value="co">Contrato por obra o faena</option>
+                        <option value="cj">Contrato por turno o jornada</option>
+                        <option value="tps">Trabajador o pensinado del sector salud</option>
+                    </select>
+                </fieldset>
+                <fieldset id="pensionado" hidden>
+                    <div class="col-md-6 mb-3">
+                        <label for="motivo" class="form-label">Seleccione motivo de pension</label>
+                        <select class="form-select" id="mot">
+                        <option value="">Seleccionar</option>
+                        <option value="vz">Vejez</option>
+                        <option value="vs">Viudez</option>
+                        <option value="od">Orfandad</option>
+                        <option value="iz">Invalidez</option>
+                        <option value="pt">Pensión en tramite</option>
+                        </select>
                     </div>
-                    <div class="col-md-6">
-                        <label for="pension" class="form-label">Seleccione Intitucion pagadora de pensión</label>
+                    <div class="col-md-6 mb-3">
+                            <label for="pension" class="form-label">Seleccione Intitucion pagadora de pensión</label>
                             <select class="form-select" id="pen">
                             <option value="">Seleccionar</option>
                             <option value="ips">IPS</option>
@@ -215,75 +222,91 @@
                             <option value="mutual">Mutual</option>
                             </select>
                     </div> 
-                </div>
+                </fieldset>
+                <fieldset id="otros" hidden>
+                    <div class="col-md-6 mb-3">
+                        <label for="pension" class="form-label">Indique cual</label>
+                        <select class="form-select" id="pen">
+                        <option value="">Seleccionar</option>
+                        <option value="independiente">Independiente</option>
+                        <option value="cesante">Cesante subsido cesantía/ Seguro desempleo</option>
+                        </select>
+                    </div> 
+                </fieldset>
                 <h4>5. Datos de empleador y/o institución pagadora de pensión</h4>
                 <hr>
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <label for="rut" class="form-label">Rut</label>
-                        <input type="number" class="form-control" id="rut">
+                <fieldset hidden id="empleador">
+                    <div class="row mb-3">
+                        <h6>Datos empleador</h6>
+                        <div class="col-md-4">
+                            <label for="rut" class="form-label">Rut</label>
+                            <input type="number" class="form-control" id="rut">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="rsocial" class="form-label">Nombre o razon social</label>
+                            <input type="text" class="form-control" id="rsocial">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="domi" class="form-label">Domicilio</label>
+                            <input type="text" class="form-control" id="domi">
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <label for="rsocial" class="form-label">Nombre o razon social</label>
-                        <input type="text" class="form-control" id="rsocial">
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="emTel" class="form-label">Telefono</label>
+                            <input type="number" class="form-control" id="emTel">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="rimponible" class="form-label">Renta imp. mensual</label>
+                            <input type="number" class="form-control" id="rimponible">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inicio" class="form-label">Contrato, desde</label>
+                                <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="inicio">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="fin" class="form-label">Hasta</label>
+                            <input type="date" class="form-control" placeholder="dd-mm-yyyy"  id="fin">
+                        </div>
                     </div>
-                    <div class="col-md-4">
-                        <label for="domi" class="form-label">Domicilio</label>
-                        <input type="text" class="form-control" id="domi">
+                    <hr>
+                </fieldset>
+                <fieldset hidden id="pagadora">
+                    <div class="row mb-3">
+                        <h6>Datos institución pagadora de pension</h6>
+                        <div class="col-md-4">
+                            <label for="rut2" class="form-label">Rut</label>
+                            <input type="number" class="form-control" id="rut2">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="rsocial2" class="form-label">Nombre o razon social</label>
+                            <input type="text" class="form-control" id="rsocial2">
+                        </div>
+                        <div class="col-md-4">
+                            <label for="domi2" class="form-label">Domicilio</label>
+                            <input type="text" class="form-control" id="domi2">
+                        </div>
                     </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-3">
-                        <label for="emTel" class="form-label">Telefono</label>
-                        <input type="number" class="form-control" id="emTel">
+                    <div class="row mb-3">
+                        <div class="col-md-3">
+                            <label for="tel2" class="form-label">Telefono</label>
+                            <input type="number" class="form-control" id="emTel2">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="rimponible2" class="form-label">Renta imp. mensual</label>
+                            <input type="number" class="form-control" id="rimponible2">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="inicio2" class="form-label">Contrato, desde</label>
+                            <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="inicio2">
+                        </div>
+                        <div class="col-md-3">
+                            <label for="fin2" class="form-label">Hasta</label>
+                            <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="fin2">
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <label for="rimponible" class="form-label">Renta imp. mensual</label>
-                        <input type="number" class="form-control" id="rimponible">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="inicio" class="form-label">Contrato, desde</label>
-                            <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="inicio">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="fin" class="form-label">Hasta</label>
-                        <input type="date" class="form-control" placeholder="dd-mm-yyyy"  id="fin">
-                    </div>
-                </div>
-                <hr>
-                <div class="row mb-3">
-                    <div class="col-md-4">
-                        <label for="rut2" class="form-label">Rut</label>
-                        <input type="number" class="form-control" id="rut2">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="rsocial2" class="form-label">Nombre o razon social</label>
-                        <input type="text" class="form-control" id="rsocial2">
-                    </div>
-                    <div class="col-md-4">
-                        <label for="domi2" class="form-label">Domicilio</label>
-                        <input type="text" class="form-control" id="domi2">
-                    </div>
-                </div>
-                <div class="row mb-3">
-                    <div class="col-md-3">
-                        <label for="tel2" class="form-label">Telefono</label>
-                        <input type="number" class="form-control" id="emTel2">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="rimponible2" class="form-label">Renta imp. mensual</label>
-                        <input type="number" class="form-control" id="rimponible2">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="inicio2" class="form-label">Contrato, desde</label>
-                        <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="inicio2">
-                    </div>
-                    <div class="col-md-3">
-                        <label for="fin2" class="form-label">Hasta</label>
-                        <input type="date" class="form-control" placeholder="dd-mm-yyyy" id="fin2">
-                    </div>
-                </div>
-                <hr>
+                    <hr>
+                </fieldset>
                 <div class="row mb-3">
                     <label for="rentfinal">Total de ingresos $ <input type="number" id="rentfinal"></label>
                 </div>
@@ -588,21 +611,17 @@
                 
                 <h4>7. Inscripción establecimiento público de salud</h4>
                 <div class="row mb-3">
-                    <div class="col-md-8">
-                        <label for="establecimientoInscrito" class="form-label">¿Esta inscrito en algun establecimiento público de salud?</label>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" name="inscrito" class="form-check-input" id="insS" value="1">
-                            <label for="insS" class="form-check-label">Si</label>
-                        </div>
-                        <div class="form-check form-check-inline">
-                            <input type="radio" name="inscrito" class="form-check-input" id="insN" value="0">
-                            <label for="insN" class="form-check-label">No</label>
-                        </div>
+                    <div class="col-md-12">
+                        <label for="establecimientoInscrito" class="form-label">¿Esta inscrito en algun establecimiento público de salud? 
+                            <select style="height: auto; width: auto;"  onchange="dest()" class="form-select" id="fest">
+                            <option value="no">No</option>
+                            <option value="si">Si</option>
+                            </select>
+                        </label>
                     </div>
                 </div>
                 <hr>
-                <h6>Si es asi:</h6>
-                <div class="row mb-3">
+                <fieldset hidden  class="row mb-3" id="est">
                     <div class="col-md-6">
                         <label for="establecimiento" class="form-label">Cual:</label>
                         <input type="text" class="form-control" id="establecimiento">
@@ -633,8 +652,10 @@
                             <option value="XVI">XVI. Ñuble</option>
                         </select>
                     </div>
-                </div>
+                </fieldset>
+
                 <h4>8. Declaraciones juradas</h4>
+
                 <hr>
                 <p>Declaro bajo juramento que todos los datos contenidos en el presente documento son verdaderos y sé que la falsedad de esta declaración me hará incurrir en las penas del art.210 Código Penal.
                 <div class="row mb-2"></div>
