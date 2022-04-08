@@ -118,6 +118,7 @@ window.addEventListener('load', async () => {
         let accion5 = document.getElementById('accion5').value;
 
         //item 7 
+        let fest = document.getElementById('fest').value;
         let establecimiento = document.getElementById('establecimiento').value;
         let establecimientoComuna = document.getElementById('establecimientoComuna').value;
         let establecimeintoRegion = document.getElementById('establecimeintoRegion').value;
@@ -134,7 +135,7 @@ window.addEventListener('load', async () => {
             carRut3, carApellido3, carNombre3, carNac3, carSexo3, par3, accion3, 
             carRut4, carApellido4, carNombre4, carNac4, carSexo4, par4, accion4, 
             carRut5, carApellido5, carNombre5, carNac5, carSexo5, par5, accion5, 
-            inscrito, establecimiento, establecimientoComuna, establecimeintoRegion);
+            fest, establecimiento, establecimientoComuna, establecimeintoRegion);
     })
 })
 
@@ -149,7 +150,7 @@ async function generatePDF(ts,
     carRut3, carApellido3, carNombre3, carNac3, carSexo3, par3, accion3, 
     carRut4, carApellido4, carNombre4, carNac4, carSexo4, par4, accion4, 
     carRut5, carApellido5, carNombre5, carNac5, carSexo5, par5, accion5, 
-    inscrito, establecimiento, establecimientoComuna, establecimeintoRegion) {
+    fest, establecimiento, establecimientoComuna, establecimeintoRegion) {
     const image1 = await loadImage("images/Form1.jpg");
     const image2 = await loadImage("images/Form2.jpg");
     const signatureImage = signaturePad.toDataURL(); 
