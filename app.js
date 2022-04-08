@@ -118,7 +118,6 @@ window.addEventListener('load', async () => {
         let accion5 = document.getElementById('accion5').value;
 
         //item 7 
-        let inscrito = document.querySelector('input[name="inscrito"]:checked').value;
         let establecimiento = document.getElementById('establecimiento').value;
         let establecimientoComuna = document.getElementById('establecimientoComuna').value;
         let establecimeintoRegion = document.getElementById('establecimeintoRegion').value;
