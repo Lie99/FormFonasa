@@ -174,29 +174,29 @@ async function generatePDF(ts,
 
 
     if (sexo == "m") {
-        pdf.rect(390, 225, 4,4, 'F')
+        pdf.rect(386, 220, 4,4, 'F')
     } else {
-        pdf.rect(338, 225,4,4, 'F')
+        pdf.rect(338, 220,4,4, 'F')
     }
     
     if (tp == "pp") {
-        pdf.rect(155, 280, 4,4, 'F')
+        pdf.rect(161, 290, 4,4, 'F')
     } else if (tp == "pd"){
-        pdf.rect(235, 280, 4,4, 'F')
+        pdf.rect(241, 290, 4,4, 'F')
     } else if (tp == "aa"){
-        pdf.rect(333, 280, 4,4, 'F')
+        pdf.rect(338, 290, 4,4, 'F')
     } else if (tp == "ao") {
-        pdf.rect(410, 280, 4,4, 'F')
+        pdf.rect(415, 290, 4,4, 'F')
     } else if (tp == "os"){
-        pdf.rect(480, 280, 4,4, 'F')
+        pdf.rect(485, 290, 4,4, 'F')
     } else {
         console.log("TP vacia")
     }
 
     if (autorizo== "1") {
-        pdf.rect(320, 320, 4,4, 'F')
+        pdf.rect(328, 320, 4,4, 'F')
     } else if (autorizo == "0") {
-        pdf.rect(343, 320, 4,4, 'F')
+        pdf.rect(351, 320, 4,4, 'F')
     } else {
         console.log("Autorizo vacio")
     }
@@ -210,17 +210,17 @@ async function generatePDF(ts,
     pdf.text(fnacimiento.toString(),215,223);
     pdf.text(nacionalidad,460,223);
 
-    pdf.text(calle,110,250);
-    pdf.text(numero,275,250);
-    pdf.text(pobla,310,250);
-    pdf.text(dep,490,250);
+    pdf.text(calle,110,260);
+    pdf.text(numero,270,260);
+    pdf.text(pobla,310,260);
+    pdf.text(dep,490,260);
 
-    pdf.text(comuna,150,275);
-    pdf.text(comuna,310,275);
-    pdf.text(region,490,275);
+    pdf.text(comuna,150,281);
+    pdf.text(comuna,330,281);
+    pdf.text(region,490,281);
 
-    pdf.text(tel,170,405);
-    pdf.text(correo,335,405);
+    pdf.text(tel,170,335);
+    pdf.text(correo,335,335);
 
 
     pdf.addPage();
