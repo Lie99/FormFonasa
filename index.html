@@ -11,6 +11,7 @@
     <script src="https://cdn.jsdelivr.net/npm/signature_pad@4.0.0/dist/signature_pad.umd.min.js"></script>
     <script src="app.js"></script>
     <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <script rel="stylesheet" href="colores.css"></script>
 </head>
 <style>
     /* Chrome, Safari, Edge, Opera */
@@ -26,7 +27,7 @@
     }
 </style>
 
-<body background="">
+<body>
     
     <div class="container mt-4">
         <div class="col-md-8 offset-md-2">
@@ -65,7 +66,7 @@
                 <div class="row mb-3">
                     <div class="col-md-6">
                         <label for="run" class="form-label">Ingrese su Run</label>
-                        <input type="number" class="form-control" id="run">
+                        <input type="text" class="form-control" id="run" oninput="checkRut(run)">
                     </div>
                     <div class="col-md-6">
                         <label for="fnacimiento" class="form-label">Fecha de Nacimiento</label>
@@ -166,11 +167,11 @@
                         <label for="autorizo" class="form-label">Autorizo a Fonasa para que envíe información a mi email y/o telefono celular :</label>
                         <div class="form-check form-check-inline">
                         <input type="radio" name="autorizo" class="form-check-input" id="aS" value="1">
-                        <label for="s" class="form-check-label">Si</label>
+                        <label for="aS" class="form-check-label">Si</label>
                         </div>
                         <div class="form-check form-check-inline">
-                        <input type="radio" name="autorizo" class="form-check-input" id="aN" value="0">
-                        <label for="n" class="form-check-label">No</label>
+                        <input type="radio" name="autorizo" class="form-check-input" id="aN" value="0" checked>
+                        <label for="aN" class="form-check-label">No</label>
                         </div>
                     </div>
                 </div>
@@ -191,7 +192,7 @@
                 </div>
                 <fieldset id="contratado" hidden>
                     <label for="contratado" class="form-label">Indique tipo de contrato</label>
-                    <select class="form-select" id="contratado">
+                    <select class="form-select" id="tcontratado">
                         <option value="">Seleccionar</option>
                         <option value="ci">Contrato Indefinido</option>
                         <option value="cf">Contrato a plazo fijo</option>

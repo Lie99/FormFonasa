@@ -56,7 +56,7 @@ window.addEventListener('load', async () => {
         let estadoActual = document.getElementById('estadoActual').value;
         let mot = document.getElementById('mot').value;
         let pen = document.getElementById('pen').value;
-        let contratado = document.getElementById('contratado').value;
+        let tcontratado = document.getElementById('tcontratado').value;
 
         //item 5
         let rut = document.getElementById('rut').value;
@@ -128,7 +128,7 @@ window.addEventListener('load', async () => {
 
         generatePDF(ts, 
             nombre, apellidop, apellidom, fnacimiento, run, sexo, nacionalidad , region, comuna, calle, numero , pobla, dep, tp, tel, correo, autorizo, 
-            estadoActual, mot, pen, 
+            estadoActual, mot, pen, tcontratado, 
             rut, rsocial, domi, emTel, rimponible, inicio, fin, rut2, rsocial2, domi2, emTel2, rimponible2, inicio2, fin2, rentfinal, 
             carRut, carApellido, carNombre, carNac, carSexo, par, accion, 
             carRut2, carApellido2, carNombre2, carNac2, carSexo2, par2, accion2, 
@@ -143,7 +143,7 @@ window.addEventListener('load', async () => {
 
 async function generatePDF(ts, 
     nombre, apellidop, apellidom, fnacimiento, run, sexo, nacionalidad , region, comuna, calle, numero , pobla, dep, tp, tel, correo, autorizo, 
-    estadoActual, mot, pen, 
+    estadoActual, mot, pen, tcontratado,
     rut, rsocial, domi, emTel, rimponible, inicio, fin, rut2, rsocial2, domi2, emTel2, rimponible2, inicio2, fin2, rentfinal, 
     carRut, carApellido, carNombre, carNac, carSexo, par, accion, 
     carRut2, carApellido2, carNombre2, carNac2, carSexo2, par2, accion2, 
@@ -176,7 +176,7 @@ async function generatePDF(ts,
     if (sexo == "m") {
         pdf.rect(380, 220, 4,4, 'F')
     } else {
-        pdf.rect(336, 220,4,4, 'F')
+        pdf.rect(333, 220,4,4, 'F')
     }
     
     if (tp == "pp") {
@@ -219,16 +219,94 @@ async function generatePDF(ts,
     pdf.text(comuna,330,281);
     pdf.text(region,490,281);
 
-    pdf.text(tel,170,325);
-    pdf.text(correo,335,325);
+    pdf.text(tel,170,300);
+    pdf.text(correo,335,300);
+    
+    if (estadoActual == "contratado") {
+        pdf.text(rut,90,450)
+        pdf.text(rsocial,190,450)
+        pdf.text(domi,330,450)
+
+        pdf.text(emTel,80,490)
+        pdf.text(rimponible,200,490)
+        pdf.text(inicio,360,490)
+        pdf.text(fin,440,490)
+    } else if (estadoActual == "pensionado"){
+        pdf.text(rut2,90,450)
+        pdf.text(rsocial2,190,450)
+        pdf.text(domi2,330,450)
+
+        pdf.text(emTel2,80,490)
+        pdf.text(rimponible2,200,490)
+        pdf.text(inicio2,360,490)
+        pdf.text(fin2,440,490)
+
+    } else if (estadoActual = "PyC"){
+        pdf.text(rut,90,450)
+        pdf.text(rsocial,190,450)
+        pdf.text(domi,330,450)
+
+        pdf.text(emTel,80,490)
+        pdf.text(rimponible,200,490)
+        pdf.text(inicio,360,490)
+        pdf.text(fin,440,490)
+
+        pdf.text(rut2,90,513)
+        pdf.text(rsocial2,190,513)
+        pdf.text(domi2,330,513)
+
+        pdf.text(emTel2,80,530)
+        pdf.text(rimponible2,200,530)
+        pdf.text(inicio2,360,530)
+        pdf.text(fin2,440,530)
+    }
+
+    pdf.text(rentfinal,205,535)
 
 
     pdf.addPage();
     pdf.addImage(image2, 'PNG', 0, 0, 565, 792);
     pdf.addImage(signatureImage,'PNG', 420, 231, 96, 13);
-    
-        
 
+    pdf.text(carRut,80,90)
+    pdf.text(carApellido,190,90)
+    pdf.text(carNombre,310,90)
+    pdf.text(carNac,425,90)
+    pdf.text(carSexo,480,90)
+    pdf.text(par,495,90)
+    pdf.text(accion,510,90)
+
+    pdf.text(carRut2,80,100)
+    pdf.text(carApellido2,190,100)
+    pdf.text(carNombre2,310,100)
+    pdf.text(carNac2,425,100)
+    pdf.text(carSexo2,480,100)
+    pdf.text(par2,495,100)
+    pdf.text(accion2,510,100)
+
+    pdf.text(carRut3,80,112)
+    pdf.text(carApellido3,190,112)
+    pdf.text(carNombre3,310,112)
+    pdf.text(carNac3,425,112)
+    pdf.text(carSexo3,480,112)
+    pdf.text(par3,495,112)
+    pdf.text(accion3,510,112)
+
+    pdf.text(carRut4,80,124)
+    pdf.text(carApellido4,190,124)
+    pdf.text(carNombre3,310,124)
+    pdf.text(carNac4,425,124)
+    pdf.text(carSexo4,480,124)
+    pdf.text(par4,495,124)
+    pdf.text(accion4,510,124)
+
+    pdf.text(carRut5,80,130)
+    pdf.text(carApellido5,190,130)
+    pdf.text(carNombre5,310,130)
+    pdf.text(carNac5,425,130)
+    pdf.text(carSexo5,480,130)
+    pdf.text(par5,495,130)
+    pdf.text(accion5,510,130)
         
     
     pdf.save("pruebaubi.pdf");
@@ -336,4 +414,62 @@ async function estado(){
         empleador.hidden = "hidden"; 
         pagadora.hidden = "hidden"; 
     }
+}
+
+function checkRut(run) {
+    // Despejar Puntos
+    var valor = run.value.replace('.', '');
+    // Despejar Guión
+    valor = valor.replace('-', '');
+
+    // Aislar Cuerpo y Dígito Verificador
+    cuerpo = valor.slice(0, -1);
+    dv = valor.slice(-1).toUpperCase();
+
+    // Formatear RUN
+    run.value = cuerpo + '-' + dv
+
+    // Si no cumple con el mínimo ej. (n.nnn.nnn)
+    if (cuerpo.length < 7) {
+        run.setCustomValidity("RUT Incompleto");
+        return false;
+    }
+
+    // Calcular Dígito Verificador
+    suma = 0;
+    multiplo = 2;
+
+    // Para cada dígito del Cuerpo
+    for (i = 1; i <= cuerpo.length; i++) {
+
+        // Obtener su Producto con el Múltiplo Correspondiente
+        index = multiplo * valor.charAt(cuerpo.length - i);
+
+        // Sumar al Contador General
+        suma = suma + index;
+
+        // Consolidar Múltiplo dentro del rango [2,7]
+        if (multiplo < 7) {
+            multiplo = multiplo + 1;
+        } else {
+            multiplo = 2;
+        }
+
+    }
+
+    // Calcular Dígito Verificador en base al Módulo 11
+    dvEsperado = 11 - (suma % 11);
+
+    // Casos Especiales (0 y K)
+    dv = (dv == 'K') ? 10 : dv;
+    dv = (dv == 0) ? 11 : dv;
+
+    // Validar que el Cuerpo coincide con su Dígito Verificador
+    if (dvEsperado != dv) {
+        run.setCustomValidity("RUT Inválido");
+        return false;
+    }
+
+    // Si todo sale bien, eliminar errores (decretar que es válido)
+    run.setCustomValidity('');
 }
