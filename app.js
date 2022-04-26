@@ -196,7 +196,7 @@ async function generatePDF(ts,
     if (autorizo== "1") {
         pdf.rect(328, 320, 4,4, 'F')
     } else if (autorizo == "0") {
-        pdf.rect(347, 320, 4,4, 'F')
+        pdf.rect(347, 325, 4,4, 'F')
     } else {
         console.log("Autorizo vacio")
     }
@@ -219,49 +219,49 @@ async function generatePDF(ts,
     pdf.text(comuna,330,281);
     pdf.text(region,490,281);
 
-    pdf.text(tel,170,300);
-    pdf.text(correo,335,300);
+    pdf.text(tel,170,308);
+    pdf.text(correo,335,308);
     
     if (estadoActual == "contratado") {
-        pdf.text(rut,90,450)
-        pdf.text(rsocial,190,450)
-        pdf.text(domi,330,450)
+        pdf.text(rut,80,472)
+        pdf.text(rsocial,190,472)
+        pdf.text(domi,330,472)
 
-        pdf.text(emTel,80,490)
-        pdf.text(rimponible,200,490)
-        pdf.text(inicio,360,490)
-        pdf.text(fin,440,490)
+        pdf.text(emTel,80,500)
+        pdf.text(rimponible,200,500)
+        pdf.text(inicio,360,500)
+        pdf.text(fin,452,500)
     } else if (estadoActual == "pensionado"){
-        pdf.text(rut2,90,450)
-        pdf.text(rsocial2,190,450)
-        pdf.text(domi2,330,450)
+        pdf.text(rut2,80,472)
+        pdf.text(rsocial2,190,472)
+        pdf.text(domi2,330,472)
 
-        pdf.text(emTel2,80,490)
-        pdf.text(rimponible2,200,490)
-        pdf.text(inicio2,360,490)
-        pdf.text(fin2,440,490)
+        pdf.text(emTel2,80,500)
+        pdf.text(rimponible2,200,500)
+        pdf.text(inicio2,360,500)
+        pdf.text(fin2,452,500)
 
     } else if (estadoActual = "PyC"){
-        pdf.text(rut,90,450)
-        pdf.text(rsocial,190,450)
-        pdf.text(domi,330,450)
+        pdf.text(rut,80,472)
+        pdf.text(rsocial,190,472)
+        pdf.text(domi,330,472)
 
-        pdf.text(emTel,80,490)
-        pdf.text(rimponible,200,490)
-        pdf.text(inicio,360,490)
-        pdf.text(fin,440,490)
+        pdf.text(emTel,80,500)
+        pdf.text(rimponible,200,500)
+        pdf.text(inicio,360,500)
+        pdf.text(fin,452,500)
 
-        pdf.text(rut2,90,513)
-        pdf.text(rsocial2,190,513)
-        pdf.text(domi2,330,513)
+        pdf.text(rut2,80,523)
+        pdf.text(rsocial2,190,523)
+        pdf.text(domi2,330,523)
 
-        pdf.text(emTel2,80,530)
-        pdf.text(rimponible2,200,530)
-        pdf.text(inicio2,360,530)
-        pdf.text(fin2,440,530)
+        pdf.text(emTel2,80,544)
+        pdf.text(rimponible2,200,544)
+        pdf.text(inicio2,360,544)
+        pdf.text(fin2,452,544)
     }
 
-    pdf.text(rentfinal,205,535)
+    pdf.text(rentfinal,205,555)
 
 
     pdf.addPage();
@@ -276,40 +276,40 @@ async function generatePDF(ts,
     pdf.text(par,495,90)
     pdf.text(accion,510,90)
 
-    pdf.text(carRut2,80,100)
-    pdf.text(carApellido2,190,100)
-    pdf.text(carNombre2,310,100)
-    pdf.text(carNac2,425,100)
-    pdf.text(carSexo2,480,100)
-    pdf.text(par2,495,100)
-    pdf.text(accion2,510,100)
+    pdf.text(carRut2,80,104)
+    pdf.text(carApellido2,190,104)
+    pdf.text(carNombre2,310,104)
+    pdf.text(carNac2,425,104)
+    pdf.text(carSexo2,480,104)
+    pdf.text(par2,495,104)
+    pdf.text(accion2,510,104)
 
-    pdf.text(carRut3,80,112)
-    pdf.text(carApellido3,190,112)
-    pdf.text(carNombre3,310,112)
-    pdf.text(carNac3,425,112)
-    pdf.text(carSexo3,480,112)
-    pdf.text(par3,495,112)
-    pdf.text(accion3,510,112)
+    pdf.text(carRut3,80,122)
+    pdf.text(carApellido3,190,122)
+    pdf.text(carNombre3,310,122)
+    pdf.text(carNac3,425,122)
+    pdf.text(carSexo3,480,122)
+    pdf.text(par3,495,122)
+    pdf.text(accion3,510,122)
 
-    pdf.text(carRut4,80,124)
-    pdf.text(carApellido4,190,124)
-    pdf.text(carNombre3,310,124)
-    pdf.text(carNac4,425,124)
-    pdf.text(carSexo4,480,124)
-    pdf.text(par4,495,124)
-    pdf.text(accion4,510,124)
+    pdf.text(carRut4,80,134)
+    pdf.text(carApellido4,190,134)
+    pdf.text(carNombre3,310,134)
+    pdf.text(carNac4,425,134)
+    pdf.text(carSexo4,480,134)
+    pdf.text(par4,495,134)
+    pdf.text(accion4,510,134)
 
-    pdf.text(carRut5,80,130)
-    pdf.text(carApellido5,190,130)
-    pdf.text(carNombre5,310,130)
-    pdf.text(carNac5,425,130)
-    pdf.text(carSexo5,480,130)
-    pdf.text(par5,495,130)
-    pdf.text(accion5,510,130)
+    pdf.text(carRut5,80,146)
+    pdf.text(carApellido5,190,146)
+    pdf.text(carNombre5,310,146)
+    pdf.text(carNac5,425,146)
+    pdf.text(carSexo5,480,146)
+    pdf.text(par5,495,146)
+    pdf.text(accion5,510,146)
         
     
-    pdf.save("pruebaubi.pdf");
+    pdf.save("pr.pdf");
 }
 
 async function verCargas(){
