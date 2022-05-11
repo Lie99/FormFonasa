@@ -121,7 +121,7 @@ window.addEventListener('load', async () => {
         let estpublic = document.getElementById('estpublic').value;
         let establecimiento = document.getElementById('establecimiento').value;
         let establecimientoComuna = document.getElementById('establecimientoComuna').value;
-        let establecimeintoRegion = document.getElementById('establecimeintoRegion').value;
+        let establecimeintoRegion = document.getElementById('establecimientoRegion').value;
 
 
 
