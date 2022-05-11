@@ -121,7 +121,7 @@ window.addEventListener('load', async () => {
         let estpublic = document.getElementById('estpublic').value;
         let establecimiento = document.getElementById('establecimiento').value;
         let establecimientoComuna = document.getElementById('establecimientoComuna').value;
-        let establecimeintoRegion = document.getElementById('establecimientoRegion').value;
+        let establecimientoRegion = document.getElementById('establecimientoRegion').value;
 
 
 
@@ -135,7 +135,7 @@ window.addEventListener('load', async () => {
             carRut3, carApellido3, carNombre3, carNac3, carSexo3, par3, accion3, 
             carRut4, carApellido4, carNombre4, carNac4, carSexo4, par4, accion4, 
             carRut5, carApellido5, carNombre5, carNac5, carSexo5, par5, accion5, 
-            estpublic, establecimiento, establecimientoComuna, establecimeintoRegion);
+            estpublic, establecimiento, establecimientoComuna, establecimientoRegion);
     })
 })
 
