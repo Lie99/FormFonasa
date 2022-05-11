@@ -424,7 +424,7 @@ async function verCargas(){
 }
 
 async function dest(){
-    let fest = document.getElementById('fest').value;
+    let estpublic = document.getElementById('estpublic').value;
     let est = document.getElementById('est');
     if (fest=="si") {
         est.hidden= false;
