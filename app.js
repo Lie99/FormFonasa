@@ -150,7 +150,7 @@ async function generatePDF(ts,
     carRut3, carApellido3, carNombre3, carNac3, carSexo3, par3, accion3, 
     carRut4, carApellido4, carNombre4, carNac4, carSexo4, par4, accion4, 
     carRut5, carApellido5, carNombre5, carNac5, carSexo5, par5, accion5, 
-    fest, establecimiento, establecimientoComuna, establecimeintoRegion) {
+    estpublic, establecimiento, establecimientoComuna, establecimientoRegion) {
     const image1 = await loadImage("images/Form1.jpg");
     const image2 = await loadImage("images/Form2.jpg");
     const signatureImage = signaturePad.toDataURL(); 
@@ -180,7 +180,7 @@ async function generatePDF(ts,
     }
     
     if (tp == "pp") {
-        pdf.rect(161, 290, 4,4, 'F')
+        pdf.rect(159, 290, 4,4, 'F')
     } else if (tp == "pd"){
         pdf.rect(241, 290, 4,4, 'F')
     } else if (tp == "aa"){
@@ -194,7 +194,7 @@ async function generatePDF(ts,
     }
 
     if (autorizo== "1") {
-        pdf.rect(328, 320, 4,4, 'F')
+        pdf.rect(326, 318, 4,4, 'F')
     } else if (autorizo == "0") {
         pdf.rect(347, 325, 4,4, 'F')
     } else {
@@ -206,9 +206,9 @@ async function generatePDF(ts,
     pdf.text(apellidom, 277,201);
     pdf.text(nombre, 397,201);
 
-    pdf.text(run.toString(), 100, 223);
-    pdf.text(fnacimiento.toString(),215,223);
-    pdf.text(nacionalidad,460,223);
+    pdf.text(run.toString(), 100, 225);
+    pdf.text(fnacimiento.toString(),215,225);
+    pdf.text(nacionalidad,460,225);
 
     pdf.text(calle,110,260);
     pdf.text(numero,268,260);
@@ -219,22 +219,22 @@ async function generatePDF(ts,
     pdf.text(comuna,330,281);
     pdf.text(region,490,281);
 
-    pdf.text(tel,170,308);
-    pdf.text(correo,335,308);
+    pdf.text(tel,170,310);
+    pdf.text(correo,335,310);
     
     if (estadoActual == "contratado") {
-        pdf.text(rut,80,472)
-        pdf.text(rsocial,190,472)
-        pdf.text(domi,330,472)
+        pdf.text(rut,80,478)
+        pdf.text(rsocial,190,478)
+        pdf.text(domi,330,478)
 
         pdf.text(emTel,80,500)
         pdf.text(rimponible,200,500)
         pdf.text(inicio,360,500)
         pdf.text(fin,452,500)
     } else if (estadoActual == "pensionado"){
-        pdf.text(rut2,80,472)
-        pdf.text(rsocial2,190,472)
-        pdf.text(domi2,330,472)
+        pdf.text(rut2,80,478)
+        pdf.text(rsocial2,190,478)
+        pdf.text(domi2,330,478)
 
         pdf.text(emTel2,80,500)
         pdf.text(rimponible2,200,500)
@@ -242,24 +242,80 @@ async function generatePDF(ts,
         pdf.text(fin2,452,500)
 
     } else if (estadoActual = "PyC"){
-        pdf.text(rut,80,472)
-        pdf.text(rsocial,190,472)
-        pdf.text(domi,330,472)
+        pdf.text(rut,80,478)
+        pdf.text(rsocial,190,478)
+        pdf.text(domi,330,478)
 
         pdf.text(emTel,80,500)
         pdf.text(rimponible,200,500)
         pdf.text(inicio,360,500)
         pdf.text(fin,452,500)
 
-        pdf.text(rut2,80,523)
-        pdf.text(rsocial2,190,523)
-        pdf.text(domi2,330,523)
+        pdf.text(rut2,80,519)
+        pdf.text(rsocial2,190,519)
+        pdf.text(domi2,330,519)
 
-        pdf.text(emTel2,80,544)
-        pdf.text(rimponible2,200,544)
-        pdf.text(inicio2,360,544)
-        pdf.text(fin2,452,544)
+        pdf.text(emTel2,80,540)
+        pdf.text(rimponible2,200,540)
+        pdf.text(inicio2,360,540)
+        pdf.text(fin2,452,540)
     }
+    if(tcontratado =="ci"){
+        pdf.rect(72, 385, 4,4, 'F')
+    }
+    if (tcontratado =="cf") {
+        pdf.rect(72, 393, 4,4, 'F')
+    }
+    if (tcontratado =="co") {
+        pdf.rect(72, 401, 4,4, 'F')
+    }
+    if (tcontratado =="cj") {
+        pdf.rect(173, 385, 4,4, 'F')
+    }
+    if (tcontratado =="tps") {
+        pdf.rect(173, 393, 4,4, 'F')
+    }
+
+    if (otr =="ind") {
+        pdf.rect(334, 385, 4,4, 'F')
+    }
+    if (otr =="ces") {
+        pdf.rect(334, 393, 4,4, 'F')
+    }
+
+    if (mot =="vz") {
+        pdf.rect(72, 418, 4,4, 'F')
+    }
+    if (mot =="vs") {
+        pdf.rect(72, 426, 4,4, 'F')
+    }
+    if (mot =="od") {
+        pdf.rect(72, 432, 4,4, 'F')
+    }
+    if (mot =="iz") {
+        pdf.rect(154, 418, 4,4, 'F')
+    }
+    if (mot =="pt") {
+        pdf.rect(154, 426, 4,4, 'F')
+    }
+
+    if (pen =="ips") {
+        pdf.rect(334, 418, 4,4, 'F')
+    }
+    if (pen =="afp") {
+        pdf.rect(334, 426, 4,4, 'F')
+    }
+    if (pen =="cia") {
+        pdf.rect(409, 418, 4,4, 'F')
+    }
+    if (pen =="mutual") {
+        pdf.rect(409, 426, 4,4, 'F')
+    }
+
+    
+
+
+
 
     pdf.text(rentfinal,205,555)
 
@@ -294,7 +350,7 @@ async function generatePDF(ts,
 
     pdf.text(carRut4,80,134)
     pdf.text(carApellido4,190,134)
-    pdf.text(carNombre3,310,134)
+    pdf.text(carNombre4,310,134)
     pdf.text(carNac4,425,134)
     pdf.text(carSexo4,480,134)
     pdf.text(par4,495,134)
@@ -307,8 +363,21 @@ async function generatePDF(ts,
     pdf.text(carSexo5,480,146)
     pdf.text(par5,495,146)
     pdf.text(accion5,510,146)
-        
     
+    let nomcom = nombre + " " + apellidop + " " + apellidom;
+    if (estpublic=="si") {
+        pdf.rect(75, 186, 4,4, 'F')
+        pdf.text(establecimiento,111,186)
+        pdf.text(establecimientoComuna,111,186)
+        pdf.text(establecimientoRegion,111,186)
+    }
+    if (estpublic=="no") {
+        pdf.rect(495, 186, 4,4, 'F')
+    }
+    pdf.text(nomcom,148,233)
+    pdf.text(run,330,233)
+
+
     pdf.save("pr.pdf");
 }
 

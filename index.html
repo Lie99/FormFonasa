@@ -25,6 +25,12 @@
     input[type=number] {
       -moz-appearance: textfield;
     }
+    div{
+        background-color: 	#FFFFF0;
+    }
+    canvas{
+        background-color: #ffffff;
+    }
 </style>
 
 <body>
@@ -227,10 +233,10 @@
                 <fieldset id="otros" hidden>
                     <div class="col-md-6 mb-3">
                         <label for="pension" class="form-label">Indique cual</label>
-                        <select class="form-select" id="pen">
+                        <select class="form-select" id="otr">
                         <option value="">Seleccionar</option>
-                        <option value="independiente">Independiente</option>
-                        <option value="cesante">Cesante subsido cesantía/ Seguro desempleo</option>
+                        <option value="ind">Independiente</option>
+                        <option value="ces">Cesante subsido cesantía/ Seguro desempleo</option>
                         </select>
                     </div> 
                 </fieldset>
@@ -614,7 +620,7 @@
                 <div class="row mb-3">
                     <div class="col-md-12">
                         <label for="establecimientoInscrito" class="form-label">¿Esta inscrito en algun establecimiento público de salud? 
-                            <select style="height: auto; width: auto;"  onchange="dest()" class="form-select" id="fest">
+                            <select style="height: auto; width: auto;"  onchange="dest()" class="form-select" id="estpublic">
                             <option value="no">No</option>
                             <option value="si">Si</option>
                             </select>
@@ -633,7 +639,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="" class="form-label">Región</label>
-                        <select class="form-select" id="establecimeintoRegion">
+                        <select class="form-select" id="establecimientoRegion">
                             <option value="">Seleccionar</option>
                             <option value="I">I. Tarapacá</option>
                             <option value="II">II. Antofagasta </option>
