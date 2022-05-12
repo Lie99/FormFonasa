@@ -174,7 +174,7 @@ async function generatePDF(ts,
 
 
     if (sexo == "m") {
-        pdf.rect(380, 220, 4,4, 'F')
+        pdf.rect(378, 220, 4,4, 'F')
     } else {
         pdf.rect(333, 220,4,4, 'F')
     }
@@ -196,7 +196,7 @@ async function generatePDF(ts,
     if (autorizo== "1") {
         pdf.rect(326, 318, 4,4, 'F')
     } else if (autorizo == "0") {
-        pdf.rect(347, 325, 4,4, 'F')
+        pdf.rect(351, 318, 4,4, 'F')
     } else {
         console.log("Autorizo vacio")
     }
@@ -284,32 +284,32 @@ async function generatePDF(ts,
     }
 
     if (mot =="vz") {
-        pdf.rect(72, 418, 4,4, 'F')
+        pdf.rect(72, 419, 4,4, 'F')
     }
     if (mot =="vs") {
-        pdf.rect(72, 426, 4,4, 'F')
+        pdf.rect(72, 432, 4,4, 'F')
     }
     if (mot =="od") {
         pdf.rect(72, 432, 4,4, 'F')
     }
     if (mot =="iz") {
-        pdf.rect(154, 418, 4,4, 'F')
+        pdf.rect(154, 419, 4,4, 'F')
     }
     if (mot =="pt") {
-        pdf.rect(154, 426, 4,4, 'F')
+        pdf.rect(154, 432, 4,4, 'F')
     }
 
     if (pen =="ips") {
-        pdf.rect(334, 418, 4,4, 'F')
+        pdf.rect(334, 419, 4,4, 'F')
     }
     if (pen =="afp") {
-        pdf.rect(334, 426, 4,4, 'F')
+        pdf.rect(338, 432, 4,4, 'F')
     }
     if (pen =="cia") {
-        pdf.rect(409, 418, 4,4, 'F')
+        pdf.rect(409, 419, 4,4, 'F')
     }
     if (pen =="mutual") {
-        pdf.rect(409, 426, 4,4, 'F')
+        pdf.rect(409, 432, 4,4, 'F')
     }
 
     
@@ -367,15 +367,15 @@ async function generatePDF(ts,
     let nomcom = nombre + " " + apellidop + " " + apellidom;
     if (estpublic=="si") {
         pdf.rect(75, 186, 4,4, 'F')
-        pdf.text(establecimiento,111,186)
-        pdf.text(establecimientoComuna,111,186)
-        pdf.text(establecimientoRegion,111,186)
+        pdf.text(establecimiento,109,198)
+        pdf.text(establecimientoComuna,111,355)
+        pdf.text(establecimientoRegion,111,450)
     }
     if (estpublic=="no") {
         pdf.rect(495, 186, 4,4, 'F')
     }
-    pdf.text(nomcom,148,233)
-    pdf.text(run,330,233)
+    pdf.text(nomcom,153,245)
+    pdf.text(run,332,245)
 
 
     pdf.save("pr.pdf");
