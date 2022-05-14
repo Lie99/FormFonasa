@@ -366,16 +366,16 @@ async function generatePDF(ts,
     
     let nomcom = nombre + " " + apellidop + " " + apellidom;
     if (estpublic=="si") {
-        pdf.rect(75, 186, 4,4, 'F')
-        pdf.text(establecimiento,109,198)
-        pdf.text(establecimientoComuna,111,355)
-        pdf.text(establecimientoRegion,111,450)
+        pdf.rect(74, 187, 4,4, 'F')
+        pdf.text(establecimiento,111,194)
+        pdf.text(establecimientoComuna,355,194)
+        pdf.text(establecimientoRegion,450,194)
     }
     if (estpublic=="no") {
         pdf.rect(495, 186, 4,4, 'F')
     }
-    pdf.text(nomcom,153,245)
-    pdf.text(run,332,245)
+    pdf.text(nomcom,153,243)
+    pdf.text(run,332,243)
 
 
     pdf.save("pr.pdf");
@@ -542,3 +542,4 @@ function checkRut(run) {
     // Si todo sale bien, eliminar errores (decretar que es válido)
     run.setCustomValidity('');
 }
+
