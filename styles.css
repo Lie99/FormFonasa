@@ -1,0 +1,54 @@
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+canvas{
+    background-color: #FFFFFF;
+}
+
+.container{
+    background-color: #ffffffe3;
+}
+
+
+
+body{
+    background-image: url('images/fondo.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+.btntop{
+    background: none repeat scroll 0 0 padding-box #1099dd ;
+    bottom: 20px;
+    border: 1px solid #1099dd;
+    border-radius: 4px;
+    color: #eee;
+    display: none;
+    font-size: 12 px;
+    opacity: 0.8;
+    padding: 10px;
+    position: fixed;
+    right: 5%;
+    text-decoration: none;
+    z-index: 999;
+}
+
+.btntop:hover,
+.btntop:focus,
+.btntop:active,
+.btntop:visited{
+    color: #fff;
+    outline: 0;
+    text-decoration: none;
+}
